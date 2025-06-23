@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# Modelo para las tareas
 class Task (models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)

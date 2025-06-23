@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+# Ruta base del proyecto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -20,46 +22,49 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Clave secreta para Django (no la uses en producción)
 SECRET_KEY = 'django-insecure-$3h5g77pt8#zz+6yzuhu+&*bb$1vy$n2_(kdcp%l+dj0uutfk8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Activa el modo debug (solo para desarrollo)
 DEBUG = True
-
+# Lista de hosts permitidos (vacía en desarrollo)
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
+# Aplicaciones instaladas en el proyecto
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'tasks',
-    'rest_framework',
-
+    'django.contrib.admin',            # Admin de Django
+    'django.contrib.auth',             # Sistema de autenticación
+    'django.contrib.contenttypes',     # Tipos de contenido
+    'django.contrib.sessions',         # Sesiones
+    'django.contrib.messages',         # Mensajes
+    'django.contrib.staticfiles',      # Archivos estáticos
+    'corsheaders',                     # Soporte para CORS
+    'tasks',                           # Tu app de tareas
+    'rest_framework',                  # Django REST Framework
 ]
 
+# Middleware que se ejecuta en cada request
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Habilita CORS
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',  # Protección CSRF
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Archivo principal de rutas
 ROOT_URLCONF = 'taskapi.urls'
 
+# Configuración de templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  # Directorios adicionales para templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,12 +76,10 @@ TEMPLATES = [
     },
 ]
 
+# Configuración WSGI
 WSGI_APPLICATION = 'taskapi.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# Configuración de la base de datos (SQLite por defecto)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -84,10 +87,7 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
+# Validadores de contraseñas
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -103,35 +103,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
+# Configuración de internacionalización
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+# Archivos estáticos
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
+# Tipo de campo primario por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# --- CORS CONFIGURACIÓN ---
+
+# Permite solicitudes CORS solo desde el frontend en localhost:3000
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+# Permite el envío de cookies y credenciales en solicitudes CORS
 CORS_ALLOW_CREDENTIALS = True
 
-# Si usas cookies, asegúrate de que CSRF esté bien configurado también
+# Si usas cookies, confía en el frontend para CSRF
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
 ]

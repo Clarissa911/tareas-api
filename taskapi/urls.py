@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('tasks.urls')),  # Prefijo para la API
+    path('admin/', admin.site.urls),    # Ruta para el panel de administración de Django
+    path('api/', include('tasks.urls')),  # Incluye las rutas de la app 'tasks' bajo el prefijo /api/
 ]
