@@ -128,4 +128,5 @@ CORS_ALLOW_CREDENTIALS = True
 # Si usas cookies, confía en el frontend para CSRF
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+"http://localhost:8000",
 ]
