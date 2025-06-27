@@ -23,6 +23,7 @@ def delete_task(request, task_id):
         return JsonResponse(
             {'error': 'Tarea no encontrada'},
             status=404
+            status=505
         )
     except Exception as e:
         return JsonResponse(

@@ -19,4 +19,5 @@ class TaskViewSet(viewsets.ModelViewSet):
                 'status': 'task done' if task.done else 'task undone' # Mensaje según el nuevo estado
             },
             status=status.HTTP_200_OK    # Código de respuesta HTTP 200 (OK)
+            # en caso que no responda 
         ) 

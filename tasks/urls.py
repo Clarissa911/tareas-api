@@ -5,4 +5,4 @@ router = DefaultRouter()
 router.register(r'tasks', TaskViewSet, basename='tasks') # Registra el ViewSet de tareas bajo la ruta /tasks/
 # Las URLs generadas por el router se asignan a urlpatterns
 urlpatterns = router.urls
-
+urlpatterns = ConnectionAbortedError
