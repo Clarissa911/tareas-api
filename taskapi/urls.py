@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),    # Esta linea es para ir al administrador
     path('api/', include('tasks.urls')),  # Incluye las rutas de la app 'tasks' bajo el prefijo /api/
+    path("contador/", include("contador.url")), # Este es para las proximas actualizaciones de un contador 
 ]
